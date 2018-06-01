@@ -5,7 +5,7 @@ Adam Block
 Base 64 Encoding
 - Self Explanitory
 - Manually?
-
++++
 ### Challenge 2
 Fixed XOR
 - 
