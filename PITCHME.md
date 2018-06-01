@@ -56,7 +56,7 @@ Implement PKCS#7 padding
 ### Challenge 10
 Implement CBC mode
 - Used XOR function to combine blocks
--- Ciphertext(n-1) XOR Plaintext(n)
+- Ciphertext(n-1) XOR Plaintext(n)
 - Throw in ECB mode to get CBC block
 +++
 ### Challenge 11
@@ -86,15 +86,15 @@ ECB cut-and-paste
 Byte-at-a-time ECB decryption Electric Boogaloo
 - Random bytes of random size prepended
 - Same as C12 in most ways
--- Need to isolate prepended data first (padding & blocksize)
+- Need to isolate prepended data first (padding & blocksize)
 - Once isolated, process the same as C12
 +++
 ### Challenge 15
 PKCS#7 padding validation
 - Ensuring data is padded before unpadding
--- Check length
--- Check bytes (all should match)
--- Ensure the pad is less than the blocksize
+- Check length
+- Check bytes (all should match)
+- Ensure the pad is less than the blocksize
 +++
 ### Challenge 16
 CBC bitflipping attacks
