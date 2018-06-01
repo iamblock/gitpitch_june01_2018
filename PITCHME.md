@@ -50,3 +50,54 @@ Detect AES in ECB mode
 +++
 ### Challenge 9
 Implement PKCS#7 padding
+- Straightforward
+- 0x01 for a single byte, 0x2 for two etc.
++++
+### Challenge 10
+Implement CBC mode
+- Used XOR function to combine blocks
+-- Ciphertext(n-1) XOR Plaintext(n)
+- Throw in ECB mode to get CBC block
++++
+### Challenge 11
+An ECB/CBC detection oracle
+- Similar to C8
+- If no matches found -> CBC
+- If match found -> ECB
+- Need string of sufficient size (potential redesign)
++++
+### Challenge 12
+Byte-at-a-time ECB decryption
+- Appended string decryption in ECB
+- Fill block with (n-1) single characters ("A")
+- Search through ASCII chars to find the character that matches the ECB Block
+- When match is found, use n-2 single characts ("A") and found char to find next
+- Etc.
++++
+### Challenge 13
+ECB cut-and-paste
+- Form email={INPUT}&uid=10&role=user
+- Find admin block with PKCS7 padding by padding input
+- Create a input string that will push the "user" into its own block
+- Replace that block with the admin block
+- Admin obtained
++++
+### Challenge 14
+Byte-at-a-time ECB decryption Electric Boogaloo
+- Random bytes of random size prepended
+- Same as C12 in most ways
+-- Need to isolate prepended data first (padding & blocksize)
+- Once isolated, process the same as C12
++++
+### Challenge 15
+PKCS#7 padding validation
+- Ensuring data is padded before unpadding
+-- Check length
+-- Check bytes (all should match)
+-- Ensure the pad is less than the blocksize
++++
+### Challenge 16
+CBC bitflipping attacks
+- Useful attack: Modify data you know the form of
+- Scrambles blocks prepended, but non-issue with IV block
+- Changed 9admin9true to ;admin=true by changing two bits
