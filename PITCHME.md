@@ -16,7 +16,6 @@ Fixed XOR
 Single-byte XOR Cipher
 - Statistical variance on letter frequency
 - Lowest score is the sentence returned
-- Result: ANSWER HERE
 +++
 ### Challenge 4
 Detect single-character XOR
